@@ -4,9 +4,9 @@
 <mapper namespace="devfun.bookstore.common.mapper.BookMapper">
 
 	<resultMap id="BaseResultMap" type="devfun.bookstore.common.domain.Book">
-		<id column="ID" jdbcType="BIGINT" property="id"/>
+		<id column="ID" jdbcType="INTEGER" property="id"/>
 		<result column="TITLE" jdbcType="VARCHAR" property="title"/>
-		<result column="CREATOR" jdbcType="VARCHAR" property="title"/>
+		<result column="CREATOR" jdbcType="VARCHAR" property="creator"/>
 		<result column="TYPE" jdbcType="VARCHAR" property="type"/>
 		<result column="DATE" jdbcType="TIMESTAMP" property="date"/>
 	</resultMap>
@@ -24,7 +24,7 @@
 	</select>
 	
 	<!-- 도서 정보 상세 조회 -->
-	<select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+	<select id="selectByPrimaryKey" parameterType="int" resultMap="BaseResultMap">
 		SELECT
 			ID,
 			TITLE,
@@ -34,7 +34,7 @@
 		FROM
 			BOOK
 		WHERE
-			ID = #{id,jdbcType=BIGINT}
+			ID = #{id}
 	</select>
 	
 	<!-- 도서 정보 등록 -->
@@ -50,7 +50,7 @@
 			#{title},
 			#{creator},
 			#{type},
-			today
+			#{date, jdbcType=TIMESTAMP}
 		)
 	</insert>
 	
@@ -62,13 +62,13 @@
 			TITLE = #{title},
 			CREATOR = #{creator},
 			TYPE = #{type},
-			DATE = #{date},
+			DATE = #{date, jdbcType=TIMESTAMP}
 		WHERE
 			ID = #{id}				
 	</update>
 	
 	<!-- 도서 정보 삭제 -->
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+	<delete id="deleteByPrimaryKey" parameterType="int">
 		DELETE FROM 
 			BOOK
 		WHERE

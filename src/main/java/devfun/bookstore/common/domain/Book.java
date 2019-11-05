@@ -4,15 +4,29 @@ import java.util.Date;
 
 public class Book {
 
-	private Long id;
+	private int id;
 	private String title;
 	private String creator;
 	private String type;
 	private Date date;
-	public Long getId() {
+	
+	public Book() {
+		
+	}
+	
+	public Book(int id, String title, String creator, String type, Date date) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.creator = creator;
+		this.type = type;
+		this.date = date;
+	}
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {

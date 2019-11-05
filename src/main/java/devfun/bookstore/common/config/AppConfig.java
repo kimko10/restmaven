@@ -11,9 +11,11 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @MapperScan("devfun.bookstore.common.mapper")
 @Configuration
+@EnableTransactionManagement
 public class AppConfig {
 
 	/*
@@ -25,14 +27,18 @@ public class AppConfig {
 		return new EmbeddedDatabaseBuilder()
 				.setName("testdb") // DB 이름설정
 				.setType(EmbeddedDatabaseType.HSQL) // DB종류설정
-				.addScript("schema.sql") // 스키마 스크립트 추가
-				.addScript("test_data.sql") // 데이터 스크립트 추가
+				.addScript("schema.xml") // 스키마 스크립트 추가
+				.addScript("test_data.xml") // 데이터 스크립트 추가
 				.build();
 	}
 	
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());
+	}
+	
+	public PlatformTransactionManager annotationDrivenTransactionManager() {
+		return transactionManager(); // reference the existing @Bean method above
 	}
 	
 	@Bean

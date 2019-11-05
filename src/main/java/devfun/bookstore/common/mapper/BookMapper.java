@@ -17,7 +17,7 @@ public interface BookMapper {
 	 * @param id 도서 아이디
 	 * @return
 	 */
-	Book selectByPrimaryKey(Long id);
+	Book selectByPrimaryKey(int id);
 	
 	/**
 	 * 도서 정보 등록
@@ -37,6 +37,6 @@ public interface BookMapper {
 	 * @param id
 	 * @return
 	 */
-	int deleteByPrimaryKey(Long id);
+	int deleteByPrimaryKey(int id);
 
 }
