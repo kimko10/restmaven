@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Book {
 
-	private int id;
+	private Long id;
 	private String title;
 	private String creator;
 	private String type;
 	private Date date;
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -39,7 +39,6 @@ public class Book {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", creator=" + creator + ", type=" + type + ", date=" + date
