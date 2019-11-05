@@ -24,6 +24,11 @@
   	
   	<!-- Servlet -->
   	<version.servlet>2.5</version.servlet>
+  	
+  	<!-- MyBatis -->
+	<version.mybatis>3.2.3</version.mybatis>
+	<version.mybatis.spring>1.2.1</version.mybatis.spring>
+	
   </properties>
   
   <dependencies>
@@ -83,6 +88,33 @@
 		<groupId>ch.qos.logback</groupId>
 		<artifactId>logback-classic</artifactId>
 		<version>${version.logback}</version>
+	</dependency>
+	
+	<!-- MyBatis -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>${version.mybatis}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>${version.mybatis.spring}</version>
+	</dependency>
+	
+	<!-- HSQLDB -->
+	<dependency>
+		<groupId>org.hsqldb</groupId>
+		<artifactId>hsqldb</artifactId>
+		<version>2.3.1</version>	
+	</dependency>
+	
+	<!-- EmbeddedDatabaseBuilder -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${version.spring}</version>
 	</dependency>
 	
   </dependencies>
