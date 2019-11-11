@@ -23,7 +23,9 @@ import devfun.bookstore.common.config.AppConfig;
 import devfun.bookstore.common.domain.Book;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+// 테스트 케이스가 스프링에서 설정한 Bean을 삽입 받아 사용 할 수 있다
 @ContextConfiguration(classes= {AppConfig.class})
+// 테스트 대상 클래스들을 스프링 컨텍스트에 적재하기 위해 사용, 구성 클래스의 정보를 설정
 @TransactionConfiguration(transactionManager = "transactionManager",
 defaultRollback = true)
 @Transactional

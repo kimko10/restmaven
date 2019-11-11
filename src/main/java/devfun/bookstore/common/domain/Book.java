@@ -2,6 +2,11 @@ package devfun.bookstore.common.domain;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "book")
+@XmlType(propOrder = {"id", "title", "creator", "type", "date"})
 public class Book {
 
 	private int id;
