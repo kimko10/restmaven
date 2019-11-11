@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import devfun.bookstore.common.BookService;
 import devfun.bookstore.common.domain.Book;
 import devfun.bookstore.rest.domain.BookList;
+import devfun.bookstore.rest.exception.ResourceNotFoundException;
 
 @Controller
 @RequestMapping(value="/books")
@@ -59,8 +60,13 @@ public class BookController {
 	 */
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	@ResponseBody
+	//@PathVariable : URI 경로에 있는 변수를 가져오도록 함
 	public Book getBook(@PathVariable("id") int id) {
 		Book book = bookService.getBook(id);
+		if( book == null ) {
+			System.out.println("HJLOG 여기로옴");
+			throw new ResourceNotFoundException();
+		}
 		return book;
 	}
 	

@@ -115,7 +115,7 @@ public class BookControllerAsXmlTest {
 		
 		MockHttpServletRequestBuilder requestBuilder 	= MockMvcRequestBuilders
 		.put("/books/3").contentType(MediaType.APPLICATION_XML).content(content)
-		.accept(MediaType.APPLICATION_XML);
+		.accept(MediaType.APPLICATION_XML); // accept 원하는 응답 형태 명시
 		this.mockMvc.perform(requestBuilder).andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_XML))
